@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/output.css" />
+    <title>Attendance Tracker</title>
+  </head>
+  <body class="bg-[#121212] ">
+    <div class="min-h-screen">
+    <!-- first time name -->
+    <div class="hidden">
+      <p class="text-[#00FFFF] bg-[#00FFFF]"></p>
+      <p class="text-[#FFBF00] bg-[#FFBF00]"></p>
+      <p class="text-[#8B5CF6] bg-[#8B5CF6]"></p>
+    </div>
+    <div id="welcome" class="bg-[#0B080F]">
+      <div>
+      <div class="container flex  mx-auto items-center justify-center h-screen p-6  ">
+        
+          <div
+            class="flex border-t-2 border-violet-600 flex-col items-center justify-center  bg-[#1A1620] p-8 rounded-2xl mx-1 "
+          >
+            <!-- image -->
+            <div class="bg-[#2D1449] p-3 flex rounded-full">
+              <svg
+                class="w-6 h-6 text-[#720dd9]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm5.495.93A.5.5 0 0 0 6.5 13c0 1.19.644 2.438 1.618 3.375C9.099 17.319 10.469 18 12 18c1.531 0 2.9-.681 3.882-1.625.974-.937 1.618-2.184 1.618-3.375a.5.5 0 0 0-.995-.07.764.764 0 0 1-.156.096c-.214.106-.554.208-1.006.295-.896.173-2.111.262-3.343.262-1.232 0-2.447-.09-3.343-.262-.452-.087-.792-.19-1.005-.295a.762.762 0 0 1-.157-.096ZM8.99 8a1 1 0 0 0 0 2H9a1 1 0 1 0 0-2h-.01Zm6 0a1 1 0 1 0 0 2H15a1 1 0 1 0 0-2h-.01Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+
+            <!-- welcome -->
+            <div class="flex flex-col items-center justify-center mt-4">
+              <h1 class="text-white font-bold text-3xl tracking-wider">
+                Welcome!
+              </h1>
+              <p class="text-gray-500 mt-2">
+                Please enter your name to continue
+              </p>
+            </div>
+
+            <!-- Name input  -->
+            <div class="flex flex-col mt-7">
+              <p class="text-white text-sm font-thin mb-1 ml-2">Full Name</p>
+              <input
+                class="w-72 sm:w-80 text-white p-3 border border-transparent focus:outline-none focus:ring-0 focus:border-[#720DD9] focus:border-2 rounded-lg bg-[#251E2E]"
+                type="text"
+                name=""
+                id="name"
+              />
+              <button
+                id="continue_btn"
+                class=" text-white mt-6 tracking-wider font-semibold bg-[#7F0DF2] py-2 px-4 rounded-xl text-md hover:bg-violet-800 transition-colors duration-200"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        
+      </div>
+      </div>
+    </div>
+
+    <!-- header -->
+    <div id="main" class="hidden">
+      <div class="bg-[#111111] border-b border-gray-900 pb-4">
+        <div class="container mx-auto p-6 flex justify-between">
+          <!-- logo -->
+          <div class="flex items-center justify-center">
+            <svg
+              class="h-10 w-10"
+              width="800px"
+              height="800px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z"
+                stroke="#8B5CF6"
+                stroke-width="1.5"
+              />
+              <path
+                opacity="0.5"
+                d="M7 4V2.5"
+                stroke="#8B5CF6"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                opacity="0.5"
+                d="M17 4V2.5"
+                stroke="#8B5CF6"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                opacity="0.5"
+                d="M2 9H22"
+                stroke="#8B5CF6"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M9 14.5L10.5 13V17"
+                stroke="#8B5CF6"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M13 16V14C13 13.4477 13.4477 13 14 13C14.5523 13 15 13.4477 15 14V16C15 16.5523 14.5523 17 14 17C13.4477 17 13 16.5523 13 16Z"
+                stroke="#8B5CF6"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+            <p class=" text-lg sm:text-2xl font-bold text-white ml-4">Attendance</p>
+          </div>
+          <!-- user name  -->
+          <div class="flex items-center justify-center">
+            <svg
+              class="h-9 w-9 mr-3 bg-violet-100 p-1 rounded-full"
+              height="800px"
+              width="800px"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 60.671 60.671"
+              xml:space="preserve"
+            >
+              <g>
+                <g>
+                  <ellipse
+                    style="fill: #8b5cf6"
+                    cx="30.336"
+                    cy="12.097"
+                    rx="11.997"
+                    ry="12.097"
+                  />
+                  <path
+                    style="fill: #8b5cf6"
+                    d="M35.64,30.079H25.031c-7.021,0-12.714,5.739-12.714,12.821v17.771h36.037V42.9
+			C48.354,35.818,42.661,30.079,35.64,30.079z"
+                  />
+                </g>
+              </g>
+            </svg>
+            <p id="header_name" class="text-white text-lg sm:text-xl r"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#121212]">
+        <div class="container flex mx-auto p-6">
+          <div class="w-full">
+            <!-- add subject -->
+            <div class="bg-[#1E1E1E] p-6 w-full rounded-2xl shadow-xl">
+              <p class="text-gray-400 text-sm mb-3 ml-1">Add New Subject</p>
+              <div class="flex flex-col sm:flex-row justify-between">
+                <div
+                  class="bg-[#101010] flex items-center p-4 rounded-2xl sm:w-4/5"
+                >
+                  <svg
+                    class=" h-7 w-7 mr-4"
+                    width="800px"
+                    height="800px"
+                    viewBox="0 0 24 24"
+                    role="img"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-labelledby="bookOpenedIconTitle"
+                    stroke="#6B7280"
+                    stroke-width="1"
+                    stroke-linecap="square"
+                    stroke-linejoin="miter"
+                    fill="none"
+                    color="#6B7280"
+                  >
+                    <title id="bookOpenedIconTitle">Book</title>
+                    <path
+                      d="M12 6s-2-2-4-2-5 2-5 2v14s3-2 5-2 4 2 4 2c1.333-1.333 2.667-2 4-2 1.333 0 3 .667 5 2V6c-2-1.333-3.667-2-5-2-1.333 0-2.667.667-4 2z"
+                    />
+                    <path stroke-linecap="round" d="M12 6v14" />
+                  </svg>
+                  <input
+                    class="w-full focus:outline-none text-white"
+                    type="text"
+                    name=""
+                    id="new_subject"
+                    placeholder="Enter subject name"
+                  />
+                </div>
+                <div class="flex items-center justify-end sm:w-1/5 ml-5">
+                  <button
+                    id="add_btn"
+                    class="bg-[#8B5CF6] px-6 mt-4 sm:mt-0 py-3  md:p-4 rounded-2xl sm:w-full text-white font-semibold text-sm md:text-lg  hover:bg-violet-700 cursor-pointer transition-all duration-200"
+                  >
+                    + Add Subject
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="bg-[#121212]">
+         <div class="container mx-auto px-6  flex">
+           <div class=" w-full ">
+            <p id = "error" class="text-[#121212] font-bold flex items-center justify-center ">Subject already exists!</p>
+           </div>
+         </div>
+      </div>
+
+      <div id="no_card" class="bg-[#121212]">
+        <div
+          class="container mx-auto flex p-6 items-center justify-center h-96"
+        >
+          <div class=" flex flex-col items-center justify-center">
+            <p class=" text-2xl sm:text-3xl text-white font-bold mb-4">
+              Add a subject to keep track
+            </p>
+            <p class="text-gray-400 text-center">
+              Your dashboard is empty. Start by adding your first subject in the input box above to begin tracking your attendance.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- cards -->
+      <div id="card_present" class="bg-[#121212]  hidden">
+        <div class="container mx-auto flex p-6">
+          <div class="w-full">
+            <p class="text-2xl text-white font-bold ml-2 mb-4">Your Subjects</p>
+
+            <div id="card" class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 ml-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="popup"
+      class="fixed inset-0 z-50 transition-opacity hidden opacity-0 duration-300"
+    >
+      <div
+        class="flex items-center justify-center h-full bg-black/50 backdrop-blur-xs"
+      >
+        <!-- main card -->
+        <div
+          class="bg-[#1E1E1E] border-t-2 border-[#FF4F4F] rounded-2xl p-7 mx-5 max-w-96"
+        >
+          <!-- heading -->
+          <div class="flex space-x-3 items-center">
+            <div
+              class="flex items-center justify-center bg-[#272222] p-3 rounded-full"
+            >
+              <svg
+                fill="#FF4D4D"
+                height="30px"
+                width="30px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 512.018 512.018"
+                xml:space="preserve"
+              >
+                <g>
+                  <g>
+                    <path
+                      d="M509.769,480.665L275.102,11.331c-7.253-14.464-30.933-14.464-38.187,0L2.249,480.665
+			c-3.307,6.613-2.944,14.464,0.939,20.757c3.904,6.272,10.752,10.112,18.155,10.112h469.333c7.403,0,14.251-3.84,18.155-10.112
+			C512.713,495.129,513.075,487.278,509.769,480.665z M256.009,426.201c-11.776,0-21.333-9.557-21.333-21.333
+			s9.557-21.333,21.333-21.333s21.333,9.557,21.333,21.333S267.785,426.201,256.009,426.201z M277.342,340.867
+			c0,11.776-9.536,21.333-21.333,21.333c-11.797,0-21.333-9.557-21.333-21.333V191.534c0-11.776,9.536-21.333,21.333-21.333
+			c11.797,0,21.333,9.557,21.333,21.333V340.867z"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <p class="text-white font-bold text-2xl">Delete Subject?</p>
+          </div>
+
+          <!-- statment -->
+          <div>
+            <p class="text-[#AEB6C4] text-sm mt-4 mb-6">
+              Are you sure you want to remove this subject? This action cannot
+              be undone. All recorded attendance data for this subject will be
+              permanently deleted.
+            </p>
+          </div>
+
+          <!-- button -->
+          <div class="flex justify-between space-x-4">
+            <button
+              id="load"
+              class="w-1/2 rounded-xl bg-[#0B0A0B] py-3 font-bold text-sm text-[#AEB6C4] cursor-pointer hover:bg-gray-800 transition-all duration-200"
+            >
+              Cancel
+            </button>
+            <button
+              id="delete"
+              class="w-1/2 rounded-xl bg-[#FF4D4D] py-3 font-bold text-sm text-white cursor-pointer hover:bg-red-500 transition-all duration-200"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="edit_popup" class="fixed inset-0 z-50 hidden ">
+      <div
+        class="flex items-center justify-center h-full bg-black/50 backdrop-blur-xs"
+      >
+        <!-- main card -->
+        <div
+          class="bg-[#1E1E1E] border-t-3 border-[#9260FF] rounded-2xl mx-5 p-7 "
+        >
+          <!-- heading -->
+          <div class="flex space-x-3 items-center">
+            <div
+              class="flex items-center justify-center bg-[#282333] p-3 rounded-full"
+            >
+              <svg
+                width="30px"
+                height="30px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="m3.99 16.854-1.314 3.504a.75.75 0 0 0 .966.965l3.503-1.314a3 3 0 0 0 1.068-.687L18.36 9.175s-.354-1.061-1.414-2.122c-1.06-1.06-2.122-1.414-2.122-1.414L4.677 15.786a3 3 0 0 0-.687 1.068zm12.249-12.63 1.383-1.383c.248-.248.579-.406.925-.348.487.08 1.232.322 1.934 1.025.703.703.945 1.447 1.025 1.934.058.346-.1.677-.348.925L19.774 7.76s-.353-1.06-1.414-2.12c-1.06-1.062-2.121-1.415-2.121-1.415z"
+                  fill="#9260FF"
+                />
+              </svg>
+            </div>
+            <p class="text-white font-bold text-2xl">Edit Subject</p>
+          </div>
+
+          <!-- statment -->
+          <div class="mt-7">
+            <div class="flex space-x-3">
+              <p class="w-1/2 text-sm text-gray-400">Attended</p>
+              <p class="w-1/2 text-sm text-gray-400">Total</p>
+            </div>
+            <div class="flex space-x-3 mt-2">
+              <input id="attended_inp" class="w-1/2 focus:outline-none bg-[#181818] py-3 px-4 rounded-xl text-white" type="text">
+              <input id="total_inp" class="w-1/2 focus:outline-none bg-[#181818] py-3 px-4 rounded-xl text-white" type="text">
+            </div>
+          </div>
+
+          <!-- button -->
+          <div class="flex flex-col space-y-4 mt-8 justify-between ">
+            <button
+              id="save_changes"
+              class="w-full rounded-xl bg-[#8B5CF6] py-3 font-bold text-sm text-white cursor-pointer hover:bg-violet-800 transition-all duration-200"
+            >
+              Save Changes
+            </button>
+            <button
+              id="cancel_edit"
+              class=" w-full rounded-xl bg-[#0B0A0B] border border-[#0B0A0B] py-3 font-bold text-sm text-[#AEB6C4] cursor-pointer hover:border hover:border-gray-500  transition-all duration-200"
+            >
+              Cancel
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</div>
+
+    <script src="attendance.js"></script>
+  </body>
+  <footer>
+    <div class="bg-[#111111] border border-gray-900 ">
+      <div class="container mx-auto flex p-6">
+        <div class="flex justify-end items-center w-full">
+           <p class="text-white justify-end text-sm items-center">Attendance Tracker &copy; 2026</p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  
+</html>
