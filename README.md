@@ -4,7 +4,7 @@
 It stores all data using browser **localStorage**, so no backend is required.
 
 ## Live Demo  
-Live Link: https://react-student-data-6e9c2.web.app
+Live Link: https://nirmalbastin10.github.io/Attendance_tracker/
 
 ## Screenshots  
 ### Desktop View
